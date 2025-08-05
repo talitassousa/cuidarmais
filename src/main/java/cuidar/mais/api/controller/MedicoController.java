@@ -4,7 +4,7 @@ import cuidar.mais.api.dto.DadosAtualizacaoMedico;
 import cuidar.mais.api.dto.DadosCadastroMedico;
 import cuidar.mais.api.dto.DadosDetalhamentoMedico;
 import cuidar.mais.api.dto.DadosListagemMedico;
-import cuidar.mais.api.medico.*;
+import cuidar.mais.api.domain.medico.*;
 import cuidar.mais.api.repository.MedicoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

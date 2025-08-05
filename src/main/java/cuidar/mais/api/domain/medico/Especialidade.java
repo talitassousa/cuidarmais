@@ -1,4 +1,4 @@
-package cuidar.mais.api.medico;
+package cuidar.mais.api.domain.medico;
 
 public enum Especialidade {
 

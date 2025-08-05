@@ -1,8 +1,8 @@
 package cuidar.mais.api.dto;
 
-import cuidar.mais.api.endereco.Endereco;
-import cuidar.mais.api.medico.Especialidade;
-import cuidar.mais.api.medico.Medico;
+import cuidar.mais.api.domain.endereco.Endereco;
+import cuidar.mais.api.domain.medico.Especialidade;
+import cuidar.mais.api.domain.medico.Medico;
 
 public record DadosDetalhamentoMedico(
         Long id,

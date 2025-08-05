@@ -1,8 +1,8 @@
-package cuidar.mais.api.medico;
+package cuidar.mais.api.domain.medico;
 
 import cuidar.mais.api.dto.DadosAtualizacaoMedico;
 import cuidar.mais.api.dto.DadosCadastroMedico;
-import cuidar.mais.api.endereco.Endereco;
+import cuidar.mais.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;

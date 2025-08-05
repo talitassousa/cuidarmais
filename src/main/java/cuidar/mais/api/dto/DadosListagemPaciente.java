@@ -1,6 +1,6 @@
 package cuidar.mais.api.dto;
 
-import cuidar.mais.api.paciente.Paciente;
+import cuidar.mais.api.domain.paciente.Paciente;
 
 public record DadosListagemPaciente(
         Long id,

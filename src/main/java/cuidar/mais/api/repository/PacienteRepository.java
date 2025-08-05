@@ -1,6 +1,6 @@
 package cuidar.mais.api.repository;
 
-import cuidar.mais.api.paciente.Paciente;
+import cuidar.mais.api.domain.paciente.Paciente;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

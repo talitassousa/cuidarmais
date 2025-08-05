@@ -1,4 +1,4 @@
-package cuidar.mais.api.endereco;
+package cuidar.mais.api.domain.endereco;
 
 import cuidar.mais.api.dto.DadosEndereco;
 import jakarta.persistence.Embeddable;

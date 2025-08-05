@@ -2,7 +2,7 @@ package cuidar.mais.api.controller;
 
 
 import cuidar.mais.api.dto.*;
-import cuidar.mais.api.paciente.Paciente;
+import cuidar.mais.api.domain.paciente.Paciente;
 import cuidar.mais.api.repository.PacienteRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

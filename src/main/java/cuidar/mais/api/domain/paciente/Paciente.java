@@ -1,12 +1,10 @@
-package cuidar.mais.api.paciente;
+package cuidar.mais.api.domain.paciente;
 
 
 import cuidar.mais.api.dto.DadosAtualizacaoPaciente;
 import cuidar.mais.api.dto.DadosCadastroPaciente;
-import cuidar.mais.api.endereco.Endereco;
+import cuidar.mais.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity(name = "Paciente")
