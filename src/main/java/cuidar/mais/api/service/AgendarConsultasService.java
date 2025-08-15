@@ -3,10 +3,12 @@ package cuidar.mais.api.service;
 import cuidar.mais.api.domain.consulta.Consulta;
 import cuidar.mais.api.domain.medico.Medico;
 import cuidar.mais.api.dto.DadosAgendamentoConsulta;
+import cuidar.mais.api.dto.DadosCancelamentoConsulta;
 import cuidar.mais.api.exception.ValidacaoException;
 import cuidar.mais.api.repository.ConsultaRepository;
 import cuidar.mais.api.repository.MedicoRepository;
 import cuidar.mais.api.repository.PacienteRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +37,7 @@ public class AgendarConsultasService {
 
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         consultaRepository.save(consulta);
 
     }
@@ -51,5 +53,15 @@ public class AgendarConsultasService {
         }
 
         return medicoRepository.escolherMedicoAleatorioLivreNaData(dados.especialidade(), dados.data());
+    }
+
+    public void cancelar(DadosCancelamentoConsulta dados) {
+
+        if (!consultaRepository.existsById(dados.idConsulta())) {
+            throw new ValidacaoException("Id da consulta informada não existe");
+        }
+
+        var consulta = consultaRepository.getReferenceById(dados.idConsulta());
+        consulta.cancelar(dados.motivo());
     }
 }

@@ -3,6 +3,7 @@ package cuidar.mais.api.domain.consulta;
 import cuidar.mais.api.domain.medico.Medico;
 import cuidar.mais.api.domain.paciente.Paciente;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -29,8 +30,12 @@ public class Consulta {
 
     private LocalDateTime data;
 
+    @Column(name = "motivo_cancelamento")
+    @Enumerated(EnumType.STRING)
+    private MotivoCancelamento motivoCancelamento;
 
 
-
-
+    public void cancelar(@NotNull MotivoCancelamento motivo) {
+        this.motivoCancelamento = motivo;
+    }
 }
