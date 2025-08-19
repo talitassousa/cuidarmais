@@ -1,4 +1,4 @@
-package cuidar.mais.api.validacoes;
+package cuidar.mais.api.validacoes.agendamento;
 
 import cuidar.mais.api.dto.DadosAgendamentoConsulta;
 import cuidar.mais.api.exception.ValidacaoException;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta{
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsulta {
 
     @Autowired
     private MedicoRepository repository;

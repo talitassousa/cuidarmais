@@ -9,8 +9,8 @@ import cuidar.mais.api.exception.ValidacaoException;
 import cuidar.mais.api.repository.ConsultaRepository;
 import cuidar.mais.api.repository.MedicoRepository;
 import cuidar.mais.api.repository.PacienteRepository;
-import cuidar.mais.api.validacoes.ValidadorAgendamentoDeConsulta;
-import jakarta.validation.Valid;
+import cuidar.mais.api.validacoes.agendamento.ValidadorAgendamentoDeConsulta;
+import cuidar.mais.api.validacoes.cancelamento.ValidadorCancelamentoDeConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +30,9 @@ public class AgendarConsultasService {
 
     @Autowired
     private List<ValidadorAgendamentoDeConsulta> validadores;
+
+    @Autowired
+    private List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
 
@@ -71,10 +74,11 @@ public class AgendarConsultasService {
     }
 
     public void cancelar(DadosCancelamentoConsulta dados) {
-
         if (!consultaRepository.existsById(dados.idConsulta())) {
-            throw new ValidacaoException("Id da consulta informada não existe");
+            throw new ValidacaoException("Id da consulta informado não existe!");
         }
+
+        validadoresCancelamento.forEach(v -> v.validar(dados));
 
         var consulta = consultaRepository.getReferenceById(dados.idConsulta());
         consulta.cancelar(dados.motivo());
