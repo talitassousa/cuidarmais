@@ -4,15 +4,17 @@ import cuidar.mais.api.domain.medico.Medico;
 import cuidar.mais.api.domain.paciente.Paciente;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jdk.jfr.Name;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "Consulta")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "consultas")
 @EqualsAndHashCode(of = "id")
 public class Consulta {
 

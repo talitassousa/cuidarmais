@@ -4,13 +4,17 @@ import cuidar.mais.api.domain.consulta.Consulta;
 import cuidar.mais.api.domain.medico.Medico;
 import cuidar.mais.api.dto.DadosAgendamentoConsulta;
 import cuidar.mais.api.dto.DadosCancelamentoConsulta;
+import cuidar.mais.api.dto.DadosDetalhamentoConsulta;
 import cuidar.mais.api.exception.ValidacaoException;
 import cuidar.mais.api.repository.ConsultaRepository;
 import cuidar.mais.api.repository.MedicoRepository;
 import cuidar.mais.api.repository.PacienteRepository;
+import cuidar.mais.api.validacoes.ValidadorAgendamentoDeConsulta;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AgendarConsultasService {
@@ -24,7 +28,10 @@ public class AgendarConsultasService {
     @Autowired
     private PacienteRepository pacienteRepository;
 
-    public void agendar(DadosAgendamentoConsulta dados){
+    @Autowired
+    private List<ValidadorAgendamentoDeConsulta> validadores;
+
+    public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
 
         if(!pacienteRepository.existsById(dados.idPaciente())) {
             throw new ValidacaoException("Id do paciente informado não existe!");
@@ -34,11 +41,19 @@ public class AgendarConsultasService {
             throw new ValidacaoException("Id do médico informado não existe!");
         }
 
-
+        validadores.forEach(v -> v.validar(dados));
+        
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
+        if (medico == null) {
+            throw new ValidacaoException("Não existe nenhum médico disponivel nessa data!");
+        }
+
+
         var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         consultaRepository.save(consulta);
+
+        return new DadosDetalhamentoConsulta(consulta);
 
     }
 
