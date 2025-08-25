@@ -1,4 +1,4 @@
-package cuidar.mais.api.security;
+package cuidar.mais.api.infra.security;
 
 
 import cuidar.mais.api.repository.UsuarioRepository;

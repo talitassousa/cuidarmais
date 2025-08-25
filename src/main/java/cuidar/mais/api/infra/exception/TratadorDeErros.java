@@ -1,4 +1,4 @@
-package cuidar.mais.api.exception;
+package cuidar.mais.api.infra.exception;
 
 
 import jakarta.persistence.EntityNotFoundException;

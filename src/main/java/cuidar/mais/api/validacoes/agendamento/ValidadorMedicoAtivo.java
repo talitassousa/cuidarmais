@@ -1,7 +1,7 @@
 package cuidar.mais.api.validacoes.agendamento;
 
 import cuidar.mais.api.dto.DadosAgendamentoConsulta;
-import cuidar.mais.api.exception.ValidacaoException;
+import cuidar.mais.api.infra.exception.ValidacaoException;
 import cuidar.mais.api.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

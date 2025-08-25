@@ -1,4 +1,4 @@
-package cuidar.mais.api.exception;
+package cuidar.mais.api.infra.exception;
 
 public class ValidacaoException extends RuntimeException {
 

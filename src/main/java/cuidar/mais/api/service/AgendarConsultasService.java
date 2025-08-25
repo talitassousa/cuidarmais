@@ -5,7 +5,7 @@ import cuidar.mais.api.domain.medico.Medico;
 import cuidar.mais.api.dto.DadosAgendamentoConsulta;
 import cuidar.mais.api.dto.DadosCancelamentoConsulta;
 import cuidar.mais.api.dto.DadosDetalhamentoConsulta;
-import cuidar.mais.api.exception.ValidacaoException;
+import cuidar.mais.api.infra.exception.ValidacaoException;
 import cuidar.mais.api.repository.ConsultaRepository;
 import cuidar.mais.api.repository.MedicoRepository;
 import cuidar.mais.api.repository.PacienteRepository;
