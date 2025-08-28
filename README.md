@@ -32,7 +32,7 @@ Antes de executar o projeto, certifique-se de ter os seguintes itens instalados:
 ### COMO EXECUTAR ⚙️
 
 Clone o Repositório 
-git clone https://seu-repositorio.git](https://github.com/talitassousa/cuidarmais.git)
+git clone https://github.com/talitassousa/cuidarmais.git
 cd cuidar-mais
 
 - Compile e Instale Dependências:
