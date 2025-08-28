@@ -18,6 +18,7 @@ A Cuidar Mais é uma clínica médica fictícia que necessita de um sistema para
 - Banco de Dados: MySQL 
 - Documentação: SpringDoc com OpenAPI/Swagger 
 - Gerenciador de Dependências: Maven
+- Autenticação: JWT via biblioteca Auth0
 - Outros: Spring Data JPA para ORM, Spring Security.
 
 ### PRÉ-REQUISITOS 📋
